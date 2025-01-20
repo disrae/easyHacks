@@ -8,7 +8,7 @@ export const list = query({
     const messages = await ctx.db
       .query("pollMessages")
       .filter(q => q.eq(q.field("pollId"), pollId))
-      .order("desc")
+      .order("asc")
       .take(100);
     return Promise.all(
       messages.map(async (message) => {

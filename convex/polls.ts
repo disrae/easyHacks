@@ -23,7 +23,7 @@ export const list = query(async ({ db }) => {
 
 export const getAllPolls = query(async ({ db }) => {
     const polls = await db.query("polls").order("desc").collect();
-    const pollsWithOptionsAndMessages = await Promise.all(polls.map(async (poll) => {
+    const pollsWithOptions = await Promise.all(polls.map(async (poll) => {
         const options = await db
             .query("pollOptions")
             .filter(q => q.eq(q.field("pollId"), poll._id))
@@ -39,15 +39,10 @@ export const getAllPolls = query(async ({ db }) => {
             return { ...option, count };
         }));
 
-        const messages = await db
-            .query("pollMessages")
-            .withIndex("by_poll", q => q.eq("pollId", poll._id))
-            .order("desc")
-            .take(100);
-        return { ...poll, options: optionsWithCounts, messages };
+        return { ...poll, options: optionsWithCounts };
     }));
 
-    return pollsWithOptionsAndMessages;
+    return pollsWithOptions;
 });
 
 export const getPollById = query(async ({ db }, { pollId }) => {

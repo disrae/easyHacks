@@ -1,10 +1,11 @@
 "use client";
 
 import React from 'react';
-import { Doc, Id } from "@/convex/_generated/dataModel";
+import { Id } from "@/convex/_generated/dataModel";
 import { api } from '@/convex/_generated/api';
 import { useQuery, useMutation } from 'convex/react';
 import { Card, CardContent } from "@/components/ui/card";
+import { Chat } from './Chat';
 
 export function Polls() {
     const polls = useQuery(api.polls.getAllPolls);
@@ -58,6 +59,7 @@ export function Polls() {
 
                         {openPolls[poll._id] && (
                             <div className="mt-4 space-y-4" onClick={e => e.stopPropagation()}>
+
                                 {/* Poll Options */}
                                 <div className="space-y-2">
                                     <h4 className="font-semibold text-sm text-gray-300">Options:</h4>
@@ -86,28 +88,8 @@ export function Polls() {
                                     })}
                                 </div>
 
-                                {/* Chat Section */}
-                                <div className="border-t border-gray-700 pt-4">
-                                    <div className="min-h-[150px] flex flex-col">
-                                        <div className="flex-1 overflow-y-auto space-y-2 mb-4">
-                                            {poll.messages && poll.messages.map(message => (
-                                                <div key={message._id} className="text-gray-300 p-2 rounded bg-gray-800/30">
-                                                    <strong className="text-purple-400">{message.userId}:</strong> {message.content}
-                                                </div>
-                                            ))}
-                                        </div>
-                                        <div className="relative mt-auto">
-                                            <input
-                                                type="text"
-                                                placeholder="Type your message..."
-                                                className="w-full bg-gray-800/30 text-white rounded-lg px-4 py-2 pr-20 focus:outline-none focus:ring-2 focus:ring-purple-500"
-                                            />
-                                            <button className="absolute right-2 top-1/2 -translate-y-1/2 bg-gray-700/50 hover:bg-gray-600/50 text-gray-300 px-4 py-1.5 rounded-md transition-colors focus:outline-none focus:shadow-[inset_0_1px_2px_rgba(255,255,255,0.1)]">
-                                                Send
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
+                                {/* Chat */}
+                                <Chat pollId={poll._id} />
                             </div>
                         )}
                     </CardContent>

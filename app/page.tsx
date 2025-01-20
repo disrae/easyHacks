@@ -25,11 +25,9 @@ export default async function Home() {
     { token: await convexAuthNextjsToken() },
   );
 
-  // const polls = await fetchQuery(api.polls.list, {}, { token: await convexAuthNextjsToken() });
-  // console.log(JSON.stringify({ polls }, null, 2));
-
   return (
     <div className="min-h-screen bg-black text-white">
+
       {/* Title */}
       <section className="relative py-20 lg:py-32 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-purple-500/20 to-blue-500/20" />
