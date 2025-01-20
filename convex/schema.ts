@@ -7,7 +7,7 @@ export default defineSchema({
   users: defineTable({
     isAdmin: v.boolean(),
     isBanned: v.boolean(),
-    name: v.optional(v.string()),
+    name: v.union(v.string(), v.null()),
     email: v.string(),
     image: v.optional(v.string()),
   }),
