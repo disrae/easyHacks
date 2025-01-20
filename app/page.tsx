@@ -7,8 +7,9 @@ import { SignIn } from "@/components/SignIn";
 import { api } from "@/convex/_generated/api";
 import { fetchQuery } from "convex/nextjs";
 import { convexAuthNextjsToken } from "@convex-dev/auth/nextjs/server";
-import PowerIcon from "@/components/icons/power";
 import Logout from "@/components/Logout";
+import CreatePoll from "@/components/polls/CreatePoll";
+import { Polls } from "@/components/polls/Polls";
 
 const pressStart2P = Press_Start_2P({
   subsets: ['latin'],
@@ -16,7 +17,7 @@ const pressStart2P = Press_Start_2P({
   display: 'swap',
 });
 
-export default async function HackathonLanding() {
+export default async function Home() {
 
   const user = await fetchQuery(
     api.users.viewer,
@@ -24,7 +25,8 @@ export default async function HackathonLanding() {
     { token: await convexAuthNextjsToken() },
   );
 
-  console.log(JSON.stringify(user, null, 2));
+  // const polls = await fetchQuery(api.polls.list, {}, { token: await convexAuthNextjsToken() });
+  // console.log(JSON.stringify({ polls }, null, 2));
 
   return (
     <div className="min-h-screen bg-black text-white">
@@ -36,7 +38,7 @@ export default async function HackathonLanding() {
             EasyHacks
           </h1>
           <p className={`${pressStart2P.className} mx-auto max-w-[700px] text-gray-300 md:text-xl`}>
-            A hackathon for the people by the people.
+            A hackathon for the people <br /> by the people
           </p>
         </div>
         {
@@ -80,6 +82,7 @@ export default async function HackathonLanding() {
         </div>
       </section>
 
+      {/* Sign In */}
       {user === null && <section className="container px-4 md:px-6 max-w-3xl mx-auto">
         <Card className="bg-black/50 border-gray-800 text-white hover:border-purple-500/50 transition-colors shadow-[inset_0_2px_4px_rgba(255,255,255,0.1)] hover:shadow-[inset_0_2px_8px_rgba(255,255,255,0.3)]">
           <CardContent className="p-6">
@@ -87,39 +90,21 @@ export default async function HackathonLanding() {
           </CardContent>
         </Card>
       </section>}
-      {user && <section className="container px-4 md:px-6 max-w-3xl mx-auto">
-        <div className="space-y-4">
-          <div className="flex justify-between items-center">
-            <h2 className={`${pressStart2P.className} text-xl text-gray-200`}>Community Polls</h2>
-            <button className="px-4 py-2 bg-purple-500 hover:bg-purple-600 text-white rounded-md transition-colors">
-              Create Poll
-            </button>
-          </div>
-          <div className="grid grid-cols-1 gap-4">
-            <Card className="bg-black/50 border-gray-800 text-white hover:border-purple-500/50 transition-colors shadow-[inset_0_2px_4px_rgba(255,255,255,0.1)] hover:shadow-[inset_0_2px_8px_rgba(255,255,255,0.3)]">
-              <CardContent className="p-6">
-                <h3 className="text-lg font-bold mb-2">What should be our first theme?</h3>
-                <div className="space-y-2">
-                  <div className="flex items-center justify-between p-2 bg-gray-800/50 rounded">
-                    <span>AI & Machine Learning</span>
-                    <span>42%</span>
-                  </div>
-                  <div className="flex items-center justify-between p-2 bg-gray-800/50 rounded">
-                    <span>Web3 & Blockchain</span>
-                    <span>28%</span>
-                  </div>
-                  <div className="flex items-center justify-between p-2 bg-gray-800/50 rounded">
-                    <span>Gaming</span>
-                    <span>30%</span>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>}
 
-      <div className="h-[100px]"></div>
+      {/* Create Poll */}
+      {user &&
+        <section className="container px-4 md:px-6 max-w-3xl mx-auto">
+          <div className="space-y-4">
+            <h2 className={`text-lg md:text-2xl text-gray-200 font-bold mb-2 drop-shadow-[0_0_8px_rgba(255,255,255,0.4)]`}>
+              Community Polls
+            </h2>
+            <CreatePoll />
+            <Polls />
+          </div>
+        </section>
+      }
+
+      <div className="h-[300px]"></div>
 
     </div>
   );

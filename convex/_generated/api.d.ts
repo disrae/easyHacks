@@ -15,8 +15,11 @@ import type {
 } from "convex/server";
 import type * as auth from "../auth.js";
 import type * as http from "../http.js";
-import type * as messages from "../messages.js";
+import type * as pollMessages from "../pollMessages.js";
+import type * as pollOptions from "../pollOptions.js";
+import type * as polls from "../polls.js";
 import type * as users from "../users.js";
+import type * as votes from "../votes.js";
 
 /**
  * A utility for referencing Convex functions in your app's API.
@@ -29,8 +32,11 @@ import type * as users from "../users.js";
 declare const fullApi: ApiFromModules<{
   auth: typeof auth;
   http: typeof http;
-  messages: typeof messages;
+  pollMessages: typeof pollMessages;
+  pollOptions: typeof pollOptions;
+  polls: typeof polls;
   users: typeof users;
+  votes: typeof votes;
 }>;
 export declare const api: FilterApi<
   typeof fullApi,
