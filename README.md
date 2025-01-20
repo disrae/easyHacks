@@ -27,16 +27,15 @@ npm create convex@latest -- -t nextjs-convexauth-shadcn
 
 ## The app
 
-The app is a basic multi-user chat. Walkthrough of the source code:
+The app is a proposal project for running a community ran hackathon. To begin, it is a polling application where users can create polls, vote on options, and discuss topics through messages. Walkthrough of the source code:
 
 - [convex/auth.ts](./convex/auth.ts) configures the available authentication methods
-- [convex/messages.ts](./convex/messages.ts) is the chat backend implementation
-- [middleware.ts](./middleware.ts) determines which pages require sign-in
+- [convex/polls.ts](./convex/polls.ts) handles poll creation, listing, and management
+- [convex/votes.ts](./convex/votes.ts) manages voting functionality
+- [convex/pollOptions.ts](./convex/pollOptions.ts) manages poll options
+- [convex/pollMessages.ts](./convex/pollMessages.ts) handles messages related to polls
 - [app/layout.tsx](./app/layout.tsx) is the main app layout
-- [app/(splash)/page.tsx](<./app/(splash)/page.tsx>) is the splash page (doesn't require sign-in)
-- [app/product/layout.tsx](./app/product/layout.tsx) is the "product" layout for the [product page](./app/product/page.tsx) (requires sign-in)
-- [app/signin/page.tsx](./app/signin/page.tsx) is the sign-in page
-- [app/product/Chat/Chat.tsx](./app/product/Chat/Chat.tsx) is the chat frontend
+- [app/page.tsx](./app/page.tsx) is the main page of the application
 
 ## Configuring other authentication methods
 
@@ -50,21 +49,19 @@ To learn more about developing your project with Convex, check out:
 - The rest of [Convex docs](https://docs.convex.dev/) to learn about all Convex features.
 - [Stack](https://stack.convex.dev/) for in-depth articles on advanced topics.
 
-## Join the community
-
-Join thousands of developers building full-stack apps with Convex:
-
 ## Deploy on Vercel
+I suggest using Vercel for deployment.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Check out  [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-# Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
-
-- Join the [Convex Discord community](https://convex.dev/community) to get help in real-time.
+- Join the [Convex Discord community](https://convex.dev/community) to get help in real-time. Use the ai-support channel to get help.
 - Follow [Convex on GitHub](https://github.com/get-convex/), star and contribute to the open-source implementation of Convex.
+
+## Demo
+![alt text](image-3.png)
+___
+![alt text](image.png)
+___
+![alt text](image-1.png)
+___
+![alt text](image-2.png)
