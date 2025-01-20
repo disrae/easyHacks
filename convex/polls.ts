@@ -28,14 +28,25 @@ export const getAllPolls = query(async ({ db }) => {
             .query("pollOptions")
             .filter(q => q.eq(q.field("pollId"), poll._id))
             .collect();
+
+        // Get vote counts for each option
+        const optionsWithCounts = await Promise.all(options.map(async (option) => {
+            const count = await db
+                .query("votes")
+                .filter(q => q.eq(q.field("optionId"), option._id))
+                .collect()
+                .then(votes => votes.length);
+            return { ...option, count };
+        }));
+
         const messages = await db
             .query("pollMessages")
             .withIndex("by_poll", q => q.eq("pollId", poll._id))
             .order("desc")
             .take(100);
-        return { ...poll, options, messages };
+        return { ...poll, options: optionsWithCounts, messages };
     }));
-    console.log(JSON.stringify(pollsWithOptionsAndMessages, null, 2));
+
     return pollsWithOptionsAndMessages;
 });
 
