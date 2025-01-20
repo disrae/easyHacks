@@ -11,10 +11,12 @@ export default convexAuthNextjsMiddleware(async (request, { convexAuth }) => {
   const isAuthenticated = await convexAuth.isAuthenticated();
   console.log(`Path: ${request.nextUrl.pathname}, isAuthenticated: ${isAuthenticated}`);
   if (isSignInPage(request) && (await convexAuth.isAuthenticated())) {
+    console.log("Redirecting authenticated user from sign-in page to home");
     return nextjsMiddlewareRedirect(request, "/");
   }
   if (isProtectedRoute(request) && !(await convexAuth.isAuthenticated())) {
-    return nextjsMiddlewareRedirect(request, "/signin");
+    console.log("Redirecting unauthenticated user to sign-in page");
+    return nextjsMiddlewareRedirect(request, "/");
   }
 });
 
