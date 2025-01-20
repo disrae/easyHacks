@@ -1,6 +1,6 @@
 "use client";
 
-import React from 'react';
+import React, { useState } from 'react';
 import { Id } from "@/convex/_generated/dataModel";
 import { api } from '@/convex/_generated/api';
 import { useQuery, useMutation } from 'convex/react';
@@ -10,7 +10,9 @@ import { Chat } from './Chat';
 export function Polls() {
     const polls = useQuery(api.polls.getAllPolls);
     const castVote = useMutation(api.votes.castVote);
+    const createOption = useMutation(api.pollOptions.createPollOption);
     const [openPolls, setOpenPolls] = React.useState<{ [key: string]: boolean; }>({});
+    const [newOption, setNewOption] = useState<{ [key: string]: string; }>({});
 
     if (!polls) return <div>Loading...</div>;
 
@@ -38,6 +40,14 @@ export function Polls() {
 
     const handleVote = async (pollId: Id<'polls'>, optionId: Id<'pollOptions'>) => {
         await castVote({ pollId, optionId });
+    };
+
+    const handleAddOption = async (pollId: Id<'polls'>) => {
+        const optionText = newOption[pollId]?.trim();
+        if (!optionText) return;
+
+        await createOption({ pollId, text: optionText });
+        setNewOption(prev => ({ ...prev, [pollId]: '' }));
     };
 
     return (
@@ -80,6 +90,27 @@ export function Polls() {
                                             </div>
                                         );
                                     })}
+                                </div>
+
+                                {/* Add Option */}
+                                <div className="mt-4 space-y-2">
+                                    <h4 className="font-semibold text-sm text-gray-300">Add Option:</h4>
+                                    <div className="flex space-x-2">
+                                        <input
+                                            type="text"
+                                            className="flex-1 bg-gray-800/30 text-white rounded-lg px-4 py-2 border border-gray-700 focus:outline-none focus:shadow-[inset_0_0px_4px_rgba(255,255,255,0.1)]"
+                                            placeholder="Enter new option"
+                                            value={newOption[poll._id] || ''}
+                                            onChange={(e) => setNewOption(prev => ({ ...prev, [poll._id]: e.target.value }))}
+                                            onKeyDown={(e) => { if (e.key === 'Enter') handleAddOption(poll._id); }}
+                                        />
+                                        <button
+                                            className="bg-gray-700/50 hover:bg-gray-600/50 text-gray-300 px-4 py-1.5 rounded-md transition-colors focus:outline-none focus:shadow-[inset_0_1px_2px_rgba(255,255,255,0.1)]"
+                                            onClick={() => handleAddOption(poll._id)}
+                                        >
+                                            Add
+                                        </button>
+                                    </div>
                                 </div>
 
                                 {/* Chat */}
