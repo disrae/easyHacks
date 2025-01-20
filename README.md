@@ -2,11 +2,11 @@
 
 This is a [Convex](https://convex.dev/) project created with [`npm create convex`](https://www.npmjs.com/package/create-convex).
 
-After the initial setup (<2 minutes) you'll have a working full-stack app using:
+After the initial setup (<2 minutes) it provides a working full-stack app using:
 
-- Convex as your backend (database, server logic)
-- [Convex Auth](https://labs.convex.dev/auth) for your authentication implementation
-- [React](https://react.dev/) as your frontend (web page interactivity)
+- Convex as the backend (database, server logic)
+- [Convex Auth](https://labs.convex.dev/auth) for authentication implementation
+- [React 19](https://react.dev/) for frontend (web page interactivity)
 - [Next.js](https://nextjs.org/) for optimized web hosting and page routing
 - [Tailwind](https://tailwindcss.com/) and [shadcn/ui](https://ui.shadcn.com/) for building great looking accessible UI fast
 
@@ -18,13 +18,15 @@ If you just cloned this codebase and didn't use `npm create convex`, run:
 npm install
 npm run dev
 ```
-
-If you're reading this README on GitHub and want to use this template, run:
-
+If you're still having issues, try running:
 ```
-npm create convex@latest -- -t nextjs-convexauth-shadcn
+npx convex dev
 ```
+This will set up a development environment for you, it should automatically sync us to the same production deployment, though I have not tested this.
 
+For testing locally, you will need some keys, some of them should be generated automatically, but you will still need the following:
+- A key for resend, the email service used for sending emails.
+- A key for github, the authentication service used for authentication.
 ## The app
 
 The app is a proposal project for running a community ran hackathon. To begin, it is a polling application where users can create polls, vote on options, and discuss topics through messages. Walkthrough of the source code:
@@ -49,8 +51,10 @@ To learn more about developing your project with Convex, check out:
 - The rest of [Convex docs](https://docs.convex.dev/) to learn about all Convex features.
 - [Stack](https://stack.convex.dev/) for in-depth articles on advanced topics.
 
-## Deploy on Vercel
+## Deployment
 I suggest using Vercel for deployment.
+
+https://docs.convex.dev/production
 
 Check out  [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
 
