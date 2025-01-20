@@ -49,18 +49,14 @@ function SignInWithGitHub() {
             className="flex-1"
             variant="outline"
             type="button"
-            onClick={() => void signIn("github", { redirectTo: "/product" })}
+            onClick={() => void signIn("github", { redirectTo: "/" })}
         >
             <GitHubLogoIcon className="mr-2 h-4 w-4" /> GitHub
         </Button>
     );
 }
 
-function SignInWithMagicLink({
-    handleLinkSent,
-}: {
-    handleLinkSent: () => void;
-}) {
+function SignInWithMagicLink({ handleLinkSent }: { handleLinkSent: () => void; }) {
     const { signIn } = useAuthActions();
     const { toast } = useToast();
     return (
@@ -69,7 +65,7 @@ function SignInWithMagicLink({
             onSubmit={(event) => {
                 event.preventDefault();
                 const formData = new FormData(event.currentTarget);
-                formData.set("redirectTo", "/product");
+                formData.set("redirectTo", "/");
                 signIn("resend", formData)
                     .then(handleLinkSent)
                     .catch((error) => {
