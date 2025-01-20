@@ -11,7 +11,6 @@ export function Polls() {
     const polls = useQuery(api.polls.getAllPolls);
     const castVote = useMutation(api.votes.castVote);
     const [openPolls, setOpenPolls] = React.useState<{ [key: string]: boolean; }>({});
-    const [userVotes, setUserVotes] = React.useState<{ [pollId: string]: string | null; }>({});
 
     if (!polls) return <div>Loading...</div>;
 
@@ -32,14 +31,13 @@ export function Polls() {
         });
     };
 
-    const getVotePercentage = (optionCount: number, options: any[]) => {
-        const totalVotes = options.reduce((sum, opt) => sum + opt.count, 0);
+    const getVotePercentage = (optionCount: number, options: { count: number; }[]) => {
+        const totalVotes = options.reduce((sum: number, opt) => sum + opt.count, 0);
         return totalVotes === 0 ? 0 : (optionCount / totalVotes) * 100;
     };
 
     const handleVote = async (pollId: Id<'polls'>, optionId: Id<'pollOptions'>) => {
         await castVote({ pollId, optionId });
-        setUserVotes(prev => ({ ...prev, [pollId]: optionId }));
     };
 
     return (
@@ -65,7 +63,6 @@ export function Polls() {
                                     <h4 className="font-semibold text-sm text-gray-300">Options:</h4>
                                     {poll.options.map(option => {
                                         const percentage = getVotePercentage(option.count, poll.options);
-                                        const hasVoted = userVotes[poll._id] === option._id;
                                         return (
                                             <div
                                                 key={option._id}
@@ -76,10 +73,7 @@ export function Polls() {
                                                 }}
                                             >
                                                 <div className="relative flex justify-between p-2 border border-gray-700 rounded-lg hover:border-gray-500 hover:bg-gray-800/30 transition-all overflow-hidden">
-                                                    <div
-                                                        className="absolute inset-0 bg-purple-200/20 hover:bg-purple-300/30 transition-colors"
-                                                        style={{ width: `${percentage}%` }}
-                                                    />
+                                                    <div className="absolute inset-0 bg-purple-200/20 hover:bg-purple-300/30 transition-colors" style={{ width: `${percentage}%` }} />
                                                     <span className="relative z-10">{option.text}</span>
                                                     <span className="relative z-10 text-sm text-gray-400">{option.count} votes</span>
                                                 </div>
