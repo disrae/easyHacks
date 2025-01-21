@@ -20,7 +20,7 @@ export function Polls() {
 
     const fuse = new Fuse(polls, {
         keys: ['question', 'description'],
-        threshold: 0.4, // Adjust this value to make search more/less strict
+        threshold: 0.4,
         ignoreLocation: true
     });
 

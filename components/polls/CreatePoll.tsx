@@ -9,7 +9,7 @@ const CreatePoll = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [question, setQuestion] = useState("");
     const [description, setDescription] = useState("");
-    const [options, setOptions] = useState<string[]>([]);
+    const [options, setOptions] = useState<string[]>([""]);
 
     const createPoll = useMutation(api.polls.createPoll);
     const createPollOption = useMutation(api.pollOptions.createPollOption);
@@ -18,17 +18,16 @@ const CreatePoll = () => {
         e.preventDefault();
         const pollId = await createPoll({ question, description });
 
-        if (options.length > 0) {
+        const nonEmptyOptions = options.filter(option => option.trim() !== "");
+        if (nonEmptyOptions.length > 0) {
             await Promise.all(
-                options
-                    .filter(option => option.trim() !== "")
-                    .map(option => createPollOption({ pollId, text: option }))
+                nonEmptyOptions.map(option => createPollOption({ pollId, text: option }))
             );
         }
 
         setQuestion("");
         setDescription("");
-        setOptions([]);
+        setOptions([""]);
         setIsOpen(false);
     };
 
