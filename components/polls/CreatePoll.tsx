@@ -9,7 +9,7 @@ const CreatePoll = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [question, setQuestion] = useState("");
     const [description, setDescription] = useState("");
-    const [options, setOptions] = useState<string[]>([""]);
+    const [options, setOptions] = useState<string[]>([]);
 
     const createPoll = useMutation(api.polls.createPoll);
     const createPollOption = useMutation(api.pollOptions.createPollOption);
@@ -18,15 +18,17 @@ const CreatePoll = () => {
         e.preventDefault();
         const pollId = await createPoll({ question, description });
 
-        await Promise.all(
-            options
-                .filter(option => option.trim() !== "")
-                .map(option => createPollOption({ pollId, text: option }))
-        );
+        if (options.length > 0) {
+            await Promise.all(
+                options
+                    .filter(option => option.trim() !== "")
+                    .map(option => createPollOption({ pollId, text: option }))
+            );
+        }
 
         setQuestion("");
         setDescription("");
-        setOptions([""]);
+        setOptions([]);
         setIsOpen(false);
     };
 
@@ -79,7 +81,7 @@ const CreatePoll = () => {
                         />
                     </div>
                     <div className="space-y-2">
-                        <label className="block text-gray-200 font-medium pb-1">Options</label>
+                        <label className="block text-gray-200 font-medium pb-1">Options (Optional)</label>
                         {options.map((option, index) => (
                             <div key={index} className="flex gap-2">
                                 <input
@@ -88,7 +90,6 @@ const CreatePoll = () => {
                                     onChange={(e) => updateOption(index, e.target.value)}
                                     className="flex-1 p-2 bg-gray-800 text-white rounded-md shadow-[inset_0_2px_4px_rgba(255,255,255,0.1)] hover:shadow-[inset_0_2px_8px_rgba(255,255,255,0.3)] focus:outline-none focus:ring-2 focus:ring-purple-500/50"
                                     placeholder={`Option ${index + 1}`}
-                                    required
                                 />
                                 <button
                                     type="button"
