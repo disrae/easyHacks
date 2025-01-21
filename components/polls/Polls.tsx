@@ -7,6 +7,8 @@ import { useQuery, useMutation } from 'convex/react';
 import { Card, CardContent } from "@/components/ui/card";
 import { Chat } from './Chat';
 import Fuse from 'fuse.js';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ChevronDown } from 'lucide-react';
 
 
 export function Polls() {
@@ -94,12 +96,22 @@ export function Polls() {
                         className="p-4 cursor-pointer relative"
                         onClick={() => togglePoll(poll._id)}
                     >
-                        <div className="text-xs font-medium text-gray-400 text-right -mt-2">
-                            {formatDate(poll.createdAt)}
+                        <div className="flex justify-between items-start">
+                            <div className="flex-1">
+                                <div className="text-xs font-medium text-gray-400 text-right -mt-2">
+                                    {formatDate(poll.createdAt)}
+                                </div>
+                                <h3 className="font-bold text-lg">{poll.question}</h3>
+                                <p className="text-gray-400 pl-2 pb-1">{poll.description}</p>
+                            </div>
+                            <motion.div
+                                animate={{ rotate: openPolls[poll._id] ? 180 : 0 }}
+                                transition={{ duration: 0.2 }}
+                                className="ml-2 mt-1"
+                            >
+                                <ChevronDown className="w-5 h-5 text-gray-400" />
+                            </motion.div>
                         </div>
-
-                        <h3 className="font-bold text-lg">{poll.question}</h3>
-                        <p className="text-gray-400 pl-2 pb-1">{poll.description}</p>
 
                         {/* Delete Button for Admins */}
                         {user?.isAdmin && (
@@ -114,58 +126,67 @@ export function Polls() {
                             </button>
                         )}
 
-                        {openPolls[poll._id] && (
-                            <div className="mt-4 space-y-4" onClick={e => e.stopPropagation()}>
+                        <AnimatePresence>
+                            {openPolls[poll._id] && (
+                                <motion.div
+                                    initial={{ height: 0, opacity: 0 }}
+                                    animate={{ height: "auto", opacity: 1 }}
+                                    exit={{ height: 0, opacity: 0 }}
+                                    transition={{ duration: 0.2 }}
+                                    className="overflow-hidden"
+                                >
+                                    <div className="mt-4 space-y-4" onClick={e => e.stopPropagation()}>
+                                        {/* Poll Options */}
+                                        <div className="space-y-2">
+                                            <h4 className="font-semibold text-sm text-gray-300">Options:</h4>
+                                            {poll.options.map(option => {
+                                                const percentage = getVotePercentage(option.count, poll.options);
+                                                return (
+                                                    <div
+                                                        key={option._id}
+                                                        className={`pl-2 text-gray-300 relative rounded overflow-hidden space-y-2`}
+                                                        onClick={(e) => {
+                                                            e.stopPropagation();
+                                                            handleVote(poll._id, option._id);
+                                                        }}
+                                                    >
+                                                        <div className="relative flex justify-between p-2 border border-gray-700 rounded-lg hover:border-gray-500 hover:bg-gray-800/30 transition-all overflow-hidden">
+                                                            <div className="absolute inset-0 bg-purple-200/20 hover:bg-purple-300/30 transition-colors" style={{ width: `${percentage}%` }} />
+                                                            <span className="relative z-10">{option.text}</span>
+                                                            <span className="relative z-10 text-sm text-gray-400">{option.count} votes</span>
+                                                        </div>
+                                                    </div>
+                                                );
+                                            })}
+                                        </div>
 
-                                {/* Poll Options */}
-                                <div className="space-y-2">
-                                    <h4 className="font-semibold text-sm text-gray-300">Options:</h4>
-                                    {poll.options.map(option => {
-                                        const percentage = getVotePercentage(option.count, poll.options);
-                                        return (
-                                            <div
-                                                key={option._id}
-                                                className={`pl-2 text-gray-300 relative rounded overflow-hidden space-y-2`}
-                                                onClick={(e) => {
-                                                    e.stopPropagation();
-                                                    handleVote(poll._id, option._id);
-                                                }}
-                                            >
-                                                <div className="relative flex justify-between p-2 border border-gray-700 rounded-lg hover:border-gray-500 hover:bg-gray-800/30 transition-all overflow-hidden">
-                                                    <div className="absolute inset-0 bg-purple-200/20 hover:bg-purple-300/30 transition-colors" style={{ width: `${percentage}%` }} />
-                                                    <span className="relative z-10">{option.text}</span>
-                                                    <span className="relative z-10 text-sm text-gray-400">{option.count} votes</span>
-                                                </div>
+                                        {/* Add Option */}
+                                        <div className="mt-4 space-y-2">
+                                            <h4 className="font-semibold text-sm text-gray-300">Add Option:</h4>
+                                            <div className="flex space-x-2">
+                                                <input
+                                                    type="text"
+                                                    className="flex-1 bg-gray-800/30 text-white rounded-lg px-4 py-2 border border-gray-700 focus:outline-none focus:shadow-[inset_0_0px_4px_rgba(255,255,255,0.1)]"
+                                                    placeholder="Enter new option"
+                                                    value={newOption[poll._id] || ''}
+                                                    onChange={(e) => setNewOption(prev => ({ ...prev, [poll._id]: e.target.value }))}
+                                                    onKeyDown={(e) => { if (e.key === 'Enter') handleAddOption(poll._id); }}
+                                                />
+                                                <button
+                                                    className="bg-gray-700/50 hover:bg-gray-600/50 text-gray-300 px-4 py-1.5 rounded-md transition-colors focus:outline-none focus:shadow-[inset_0_1px_2px_rgba(255,255,255,0.1)]"
+                                                    onClick={() => handleAddOption(poll._id)}
+                                                >
+                                                    Add
+                                                </button>
                                             </div>
-                                        );
-                                    })}
-                                </div>
+                                        </div>
 
-                                {/* Add Option */}
-                                <div className="mt-4 space-y-2">
-                                    <h4 className="font-semibold text-sm text-gray-300">Add Option:</h4>
-                                    <div className="flex space-x-2">
-                                        <input
-                                            type="text"
-                                            className="flex-1 bg-gray-800/30 text-white rounded-lg px-4 py-2 border border-gray-700 focus:outline-none focus:shadow-[inset_0_0px_4px_rgba(255,255,255,0.1)]"
-                                            placeholder="Enter new option"
-                                            value={newOption[poll._id] || ''}
-                                            onChange={(e) => setNewOption(prev => ({ ...prev, [poll._id]: e.target.value }))}
-                                            onKeyDown={(e) => { if (e.key === 'Enter') handleAddOption(poll._id); }}
-                                        />
-                                        <button
-                                            className="bg-gray-700/50 hover:bg-gray-600/50 text-gray-300 px-4 py-1.5 rounded-md transition-colors focus:outline-none focus:shadow-[inset_0_1px_2px_rgba(255,255,255,0.1)]"
-                                            onClick={() => handleAddOption(poll._id)}
-                                        >
-                                            Add
-                                        </button>
+                                        {/* Chat */}
+                                        <Chat pollId={poll._id} />
                                     </div>
-                                </div>
-
-                                {/* Chat */}
-                                <Chat pollId={poll._id} />
-                            </div>
-                        )}
+                                </motion.div>
+                            )}
+                        </AnimatePresence>
                     </CardContent>
                 </Card>
             ))}
