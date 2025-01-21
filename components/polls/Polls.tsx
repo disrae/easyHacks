@@ -6,6 +6,7 @@ import { api } from '@/convex/_generated/api';
 import { useQuery, useMutation } from 'convex/react';
 import { Card, CardContent } from "@/components/ui/card";
 import { Chat } from './Chat';
+import Fuse from 'fuse.js';
 
 export function Polls() {
     const polls = useQuery(api.polls.getAllPolls);
@@ -13,8 +14,19 @@ export function Polls() {
     const createOption = useMutation(api.pollOptions.createPollOption);
     const [openPolls, setOpenPolls] = React.useState<{ [key: string]: boolean; }>({});
     const [newOption, setNewOption] = useState<{ [key: string]: string; }>({});
+    const [searchQuery, setSearchQuery] = useState('');
 
     if (!polls) return <div>Loading...</div>;
+
+    const fuse = new Fuse(polls, {
+        keys: ['question', 'description'],
+        threshold: 0.4, // Adjust this value to make search more/less strict
+        ignoreLocation: true
+    });
+
+    const filteredPolls = searchQuery
+        ? fuse.search(searchQuery).map(result => result.item)
+        : polls;
 
     const togglePoll = (pollId: string) => {
         setOpenPolls(prev => ({
@@ -52,7 +64,18 @@ export function Polls() {
 
     return (
         <div className="space-y-4">
-            {polls.map(poll => (
+            {/* Add search input */}
+            <div className="mb-4">
+                <input
+                    type="text"
+                    className="w-full bg-gray-800/30 text-white rounded-lg px-4 py-2 border border-gray-700 focus:outline-none focus:shadow-[inset_0_0px_4px_rgba(255,255,255,0.1)]"
+                    placeholder="Search polls..."
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                />
+            </div>
+
+            {filteredPolls.map(poll => (
                 <Card key={poll._id} className={`bg-black/50 border-gray-800 text-white ${!openPolls[poll._id] ? 'hover:border-purple-500/50 hover:shadow-[inset_0_2px_8px_rgba(255,255,255,0.3)]' : ''} transition-colors shadow-[inset_0_2px_4px_rgba(255,255,255,0.1)]`}>
                     <CardContent
                         className="p-4 cursor-pointer relative"
