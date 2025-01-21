@@ -53,16 +53,35 @@ export const updatePoll = mutation(async ({ db }, { pollId, updates }) => {
     await db.patch(pollId as Id<"polls">, updates as Partial<{ _id: Id<"polls">; _creationTime: number; description?: string | undefined; creatorId: Id<"users">; question: string; createdAt: number; isActive: boolean; }>);
 });
 
-export const deletePoll = mutation(async ({ db, auth }, { pollId }) => {
-    const identity = await auth.getUserIdentity();
-    if (!identity) {
+export const deletePoll = mutation(async (ctx, { pollId }: { pollId: Id<"polls">; }) => {
+    const { db } = ctx;
+    const userId = await getAuthUserId(ctx);
+    if (!userId) {
         throw new Error("Unauthorized - not signed in");
     }
-    const userId = identity.subject as Id<"users">;
     const user = await db.get(userId);
     if (!user?.isAdmin) {
         throw new Error("Unauthorized - only admin can delete polls");
-        // Add reporting? This would be a critical bug or a hack attempt.
     }
+
+    // Delete all poll options associated with the poll
+    const options = await db.query("pollOptions").filter(q => q.eq(q.field("pollId"), pollId)).collect();
+    for (const option of options) {
+        await db.delete(option._id);
+    }
+
+    // Delete all votes associated with the poll
+    const votes = await db.query("votes").filter(q => q.eq(q.field("pollId"), pollId)).collect();
+    for (const vote of votes) {
+        await db.delete(vote._id);
+    }
+
+    // Delete all messages associated with the poll
+    const messages = await db.query("pollMessages").filter(q => q.eq(q.field("pollId"), pollId)).collect();
+    for (const message of messages) {
+        await db.delete(message._id);
+    }
+
+    // Finally, delete the poll itself
     await db.delete(pollId as Id<"polls">);
 });

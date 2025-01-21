@@ -8,13 +8,17 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Chat } from './Chat';
 import Fuse from 'fuse.js';
 
+
 export function Polls() {
     const polls = useQuery(api.polls.getAllPolls);
     const castVote = useMutation(api.votes.castVote);
     const createOption = useMutation(api.pollOptions.createPollOption);
+    const deletePoll = useMutation(api.polls.deletePoll);
+    const user = useQuery(api.users.viewer);
     const [openPolls, setOpenPolls] = React.useState<{ [key: string]: boolean; }>({});
     const [newOption, setNewOption] = useState<{ [key: string]: string; }>({});
     const [searchQuery, setSearchQuery] = useState('');
+    const [confirmDeleteId, setConfirmDeleteId] = useState<string | null>(null);
 
     if (!polls) return <div>Loading...</div>;
 
@@ -62,6 +66,15 @@ export function Polls() {
         setNewOption(prev => ({ ...prev, [pollId]: '' }));
     };
 
+    const handleDeletePoll = async (pollId: Id<'polls'>) => {
+        if (confirmDeleteId === pollId) {
+            await deletePoll({ pollId });
+            setConfirmDeleteId(null);
+        } else {
+            setConfirmDeleteId(pollId);
+        }
+    };
+
     return (
         <div className="space-y-4">
             {/* Add search input */}
@@ -87,6 +100,19 @@ export function Polls() {
 
                         <h3 className="font-bold text-lg">{poll.question}</h3>
                         <p className="text-gray-400 pl-2 pb-1">{poll.description}</p>
+
+                        {/* Delete Button for Admins */}
+                        {user?.isAdmin && (
+                            <button
+                                onClick={(e) => {
+                                    e.stopPropagation();
+                                    handleDeletePoll(poll._id);
+                                }}
+                                className="text-red-500 hover:text-red-400"
+                            >
+                                {confirmDeleteId === poll._id ? 'Confirm Delete?' : 'Delete Poll'}
+                            </button>
+                        )}
 
                         {openPolls[poll._id] && (
                             <div className="mt-4 space-y-4" onClick={e => e.stopPropagation()}>
