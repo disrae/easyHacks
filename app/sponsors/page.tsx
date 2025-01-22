@@ -18,7 +18,7 @@ export default function SponsorsPage() {
                     </div>
 
                     {/* Sponsor logos grid */}
-                    <div className="flex justify-around items-center mb-16">
+                    <div className="flex flex-col md:flex-row justify-around items-center mb-16 space-y-12 md:space-y-0">
                         <Image
                             src="/images/perplexity.png"
                             alt="Perplexity AI"
