@@ -34,27 +34,27 @@ export default async function Home() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <Card className="bg-black/50 border-gray-800 text-white transition-colors shadow-[inset_0_2px_4px_rgba(255,255,255,0.1)]]">
               <CardContent className="p-6 space-y-4">
-                <p className="text-lg md:text-2xl text-gray-200 font-bold mb-2 drop-shadow-[0_0_8px_rgba(255,255,255,0.4)]">Open</p>
+                <p className="text-lg md:text-2xl text-gray-200 font-bold mb-2 drop-shadow-[0_0_8px_rgba(255,255,255,0.4)]">Unwind</p>
                 <p className="text-lg text-gray-200">
-                  Just find or create a team and a topic you like.
+                  Find your tribe and dive into a topic that sparks your passion.
                 </p>
               </CardContent>
             </Card>
 
             <Card className="bg-black/50 border-gray-800 text-white transition-colors shadow-[inset_0_2px_4px_rgba(255,255,255,0.1)]]">
               <CardContent className="p-6 space-y-4">
-                <p className="text-lg md:text-2xl text-gray-200 font-bold mb-2 drop-shadow-[0_0_8px_rgba(255,255,255,0.4)]">Chill</p>
+                <p className="text-lg md:text-2xl text-gray-200 font-bold mb-2 drop-shadow-[0_0_8px_rgba(255,255,255,0.4)]">Create</p>
                 <p className="text-lg text-gray-200">
-                  Take your time to build something amazing. Just submit by March 1st.
+                  Join forces with like-minded individuals and bring your ideas to life.
                 </p>
               </CardContent>
             </Card>
 
             <Card className="bg-black/50 border-gray-800 text-white transition-colors shadow-[inset_0_2px_4px_rgba(255,255,255,0.1)]]">
               <CardContent className="p-6 space-y-4">
-                <p className="text-lg md:text-2xl text-gray-200 font-bold mb-2 drop-shadow-[0_0_8px_rgba(255,255,255,0.4)]">Distributed</p>
+                <p className="text-lg md:text-2xl text-gray-200 font-bold mb-2 drop-shadow-[0_0_8px_rgba(255,255,255,0.4)]">Empower</p>
                 <p className="text-lg text-gray-200">
-                  Shape the hackathon by voting on key decisions in community polls.
+                  Shape the future of the hackathon through community-driven decisions.
                 </p>
               </CardContent>
             </Card>
