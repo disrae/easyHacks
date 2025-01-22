@@ -17,16 +17,16 @@ export function Footer() {
                             <span className=" font-bold font-pixel ">EasyHacks</span>
                         </div>
                         <div className="flex space-x-4">
-                            <Link href="https://github.com/easyhacks" className="text-gray-400 hover:text-white transition-colors">
+                            <Link href="https://github.com/easyhacksglobal" className="text-gray-400 hover:text-white transition-colors" target="_blank" rel="noopener noreferrer">
                                 <Github className="w-6 h-6" />
                             </Link>
-                            <Link href="https://discord.gg/vcyEUgbs" className="text-gray-400 hover:text-white transition-colors">
+                            <Link href="https://discord.gg/vcyEUgbs" className="text-gray-400 hover:text-white transition-colors" target="_blank" rel="noopener noreferrer">
                                 <Discord className="w-6 h-6" />
                             </Link>
-                            <Link href='https://www.instagram.com/joineasyhacks/#' className="text-gray-400 hover:text-white transition-colors">
+                            <Link href='https://www.instagram.com/joineasyhacks/#' className="text-gray-400 hover:text-white transition-colors" target="_blank" rel="noopener noreferrer">
                                 <Instagram className="w-6 h-6" />
                             </Link>
-                            <Link href="/" className="text-gray-400 hover:text-white transition-colors">
+                            <Link href="/" className="text-gray-400 hover:text-white transition-colors" target="_blank" rel="noopener noreferrer">
                                 <X className="w-6 h-6" />
                             </Link>
                         </div>
