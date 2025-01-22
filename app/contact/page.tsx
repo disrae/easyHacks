@@ -8,10 +8,10 @@ export default function ContactPage() {
                 <div className="bg-black/50 border border-gray-800 rounded-lg p-8">
                     <div className="text-center mb-12">
                         <h2 className="text-4xl font-bold mb-4">Need help or have questions?</h2>
-                        <h2 className="text-4xl font-bold mb-8">We're here for you!</h2>
+                        <h2 className="text-4xl font-bold mb-8">We&apos;re here for you!</h2>
                         <p className="text-gray-300">
                             If you have any questions, suggestions, or concerns,
-                            please don't hesitate to reach out to us through any of the following channels.
+                            please don&apos;t hesitate to reach out to us through any of the following channels.
                         </p>
                     </div>
 

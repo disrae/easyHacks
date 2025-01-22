@@ -43,11 +43,11 @@ export default function RootLayout({
       // and is needed by `ThemeProvider` which sets the theme
       // class attribute on it */}
       <ConvexClientProvider>
-        <html lang="en" suppressHydrationWarning className={`${geistSans.variable} ${geistMono.variable} ${pixelFont.variable} antialiased min-h-screen flex flex-col`}>
-          <body>
+        <html lang="en" suppressHydrationWarning className={`${geistSans.variable} ${geistMono.variable} ${pixelFont.variable} antialiased`}>
+          <body className="min-h-screen flex flex-col">
             <ThemeProvider attribute="class">
               <Navbar />
-              <main className="pt-16 pb-16 flex-grow">
+              <main className="pt-16 flex-grow">
                 {children}
               </main>
               <Footer />
