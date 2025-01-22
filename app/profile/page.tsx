@@ -5,6 +5,7 @@ import { api } from "@/convex/_generated/api";
 import { redirect } from "next/navigation";
 import Image from "next/image";
 import { PageHeader } from "@/components/PageHeader";
+import Logout from "@/components/Logout";
 
 export default function ProfilePage() {
     const user = useQuery(api.users.viewer);
@@ -17,7 +18,10 @@ export default function ProfilePage() {
         <div className="bg-black text-white">
             <PageHeader title="Profile" />
             <div className="container mx-auto px-4 py-8 max-w-3xl">
-                <div className="bg-black/50 border border-gray-800 rounded-lg p-8">
+                <div className="bg-black/50 border border-gray-800 rounded-lg p-8 relative">
+                    <div className="absolute top-0 right-0 m-4">
+                        <Logout />
+                    </div>
                     <div className="flex items-center space-x-4 mb-6">
                         {user.image && (
                             <Image

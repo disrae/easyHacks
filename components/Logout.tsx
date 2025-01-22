@@ -14,7 +14,7 @@ const Logout = () => {
             >
                 <PowerIcon />
             </button>
-            <span className="absolute -bottom-4 left-1/2 -translate-x-1/2 bg-black/80 text-white text-sm px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+            <span className="absolute -bottom-4 left-[15px] -translate-x-1/2 bg-black/80 text-white text-sm px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
                 Log out
             </span>
         </div>
