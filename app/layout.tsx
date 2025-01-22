@@ -7,6 +7,7 @@ import ConvexClientProvider from "@/components/ConvexClientProvider";
 import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
 import { Press_Start_2P } from 'next/font/google';
+import { Toaster } from "@/components/ui/toaster";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -52,6 +53,7 @@ export default function RootLayout({
               </main>
               <Footer />
             </ThemeProvider>
+            <Toaster />
           </body>
         </html>
       </ConvexClientProvider>

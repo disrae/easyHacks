@@ -9,6 +9,7 @@ import { Chat } from './Chat';
 import Fuse from 'fuse.js';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
+import { toast } from "@/components/ui/use-toast";
 
 
 export function Polls() {
@@ -57,6 +58,14 @@ export function Polls() {
     };
 
     const handleVote = async (pollId: Id<'polls'>, optionId: Id<'pollOptions'>) => {
+        if (!user) {
+            toast({
+                title: "Sign in required",
+                description: "Please sign in to vote on polls",
+                variant: "default",
+            });
+            return;
+        }
         await castVote({ pollId, optionId });
     };
 
