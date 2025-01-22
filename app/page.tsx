@@ -8,8 +8,7 @@ import { api } from "@/convex/_generated/api";
 import { fetchQuery } from "convex/nextjs";
 import { convexAuthNextjsToken } from "@convex-dev/auth/nextjs/server";
 import Logout from "@/components/Logout";
-import CreatePoll from "@/components/polls/CreatePoll";
-import { Polls } from "@/components/polls/Polls";
+import { PageHeader } from "@/components/PageHeader";
 
 const pressStart2P = Press_Start_2P({
   subsets: ['latin'],
@@ -26,25 +25,8 @@ export default async function Home() {
   );
 
   return (
-    <div className="min-h-screen bg-black text-white">
-
-      {/* Title */}
-      <section className="relative py-20 lg:py-32 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-purple-500/20 to-blue-500/20" />
-        <div className="container px-4 md:px-6 relative max-w-3xl mx-auto flex flex-col items-center text-center space-y-4">
-          <h1 className={`${pressStart2P.className} text-3xl tracking-tighter font-bold sm:text-4xl md:text-5xl lg:text-6xl/none`}>
-            EasyHacks
-          </h1>
-          <p className={`${pressStart2P.className} mx-auto max-w-[700px] text-gray-300 md:text-xl`}>
-            A hackathon for the people <br /> by the people
-          </p>
-        </div>
-        {
-          user && <div className="absolute top-4 right-4 w-10 h-10 text-teal-600">
-            <Logout />
-          </div>
-        }
-      </section>
+    <div className="bg-black text-white">
+      <PageHeader title="A hackathon for the people by the people" centered />
 
       {/* Features Section */}
       <section className="py-12">
@@ -88,21 +70,6 @@ export default async function Home() {
           </CardContent>
         </Card>
       </section>}
-
-      {/* Create Poll */}
-      {user &&
-        <section className="container px-4 md:px-6 max-w-3xl mx-auto">
-          <div className="space-y-4">
-            <h2 className={`text-lg md:text-2xl text-gray-200 font-bold mb-2 drop-shadow-[0_0_8px_rgba(255,255,255,0.4)]`}>
-              Community Polls
-            </h2>
-            <CreatePoll />
-            <Polls />
-          </div>
-        </section>
-      }
-
-      <div className="h-[300px]"></div>
 
     </div>
   );
