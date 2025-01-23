@@ -40,14 +40,14 @@ export default function SponsorsPage() {
                         <h2 className="text-3xl font-bold mb-4">Become a sponsor</h2>
                         <p className="text-gray-300 mb-4">Want to make a difference?</p>
                         <p className="text-gray-300 mb-8">
-                            We&apos;ll update the email here soon!
+                            If you&apos;re interested in becoming a sponsor, please reach out to us at <a href="mailto:joineasyhacks@gmail.com" className="font-medium text-indigo-400 hover:text-indigo-300">joineasyhacks@gmail.com</a>.
                         </p>
-                        {/* <Link
-                            href="mailto:sponsors@easyhacks.org"
+                        <a
+                            href="mailto:joineasyhacks@gmail.com"
                             className="inline-block bg-white text-black px-6 py-2 rounded-md font-medium hover:bg-gray-200 transition-colors"
                         >
                             Become a sponsor
-                        </Link> */}
+                        </a>
                     </div>
                 </div>
             </div>

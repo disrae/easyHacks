@@ -42,10 +42,10 @@ export default function ContactPage() {
                                 For formal inquiries or detailed questions, you can reach us at:
                             </p>
                             <a
-                                href="mailto:support@easyhacks.dev"
+                                href="mailto:joineasyhacks@gmail.com"
                                 className="text-indigo-400 hover:text-indigo-300"
                             >
-                                support@easyhacks.dev
+                                joineasyhacks@gmail.com
                             </a>
                         </section>
 
