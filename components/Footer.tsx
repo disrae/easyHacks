@@ -29,9 +29,9 @@ export function Footer() {
                             <Link href='https://www.instagram.com/joineasyhacks/#' className="text-gray-400 hover:text-white transition-colors" target="_blank" rel="noopener noreferrer">
                                 <Instagram className="w-6 h-6" />
                             </Link>
-                            <Link href="/" className="text-gray-400 hover:text-white transition-colors" target="_blank" rel="noopener noreferrer">
+                            <div className="text-gray-600">
                                 <LinkedIn className="w-6 h-6" />
-                            </Link>
+                            </div>
                         </div>
                     </div>
 
