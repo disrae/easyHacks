@@ -16,19 +16,19 @@ export default function AboutPage() {
                     {/* About Box Header */}
                     <div className="flex items-end">
                         {/* Question Mark */}
-                        <div className="border border-white p-3">
+                        <div className="border border-gray-400 p-3">
                             <div className="w-12 h-12 rounded-full border-2 border-[#FFB800] flex items-center justify-center">
                                 <span className="text-[#ffb700] text-3xl">?</span>
                             </div>
                         </div>
 
                         {/* Title */}
-                        <div className="border border-white p-3 flex items-end">
+                        <div className="border border-gray-400 p-3 flex items-end">
                             <p className={`${pressStart2P.className} text-2xl font-bold text-[#FFB800]`}>— About —</p>
                         </div>
                     </div>
                     {/* Content */}
-                    <div className="border border-white p-3 bg-gradient-to-b from-gray-900 to-black">
+                    <div className="border border-gray-400 p-3 bg-gradient-to-b from-gray-900 to-black">
                         <p className="text-gray-300 font-semibold tracking-wide leading-relaxed pb-2">
                             EasyHacks is dedicated to making hackathons accessible to everyone. We
                             believe in fostering innovation, collaboration, and learning in a welcoming

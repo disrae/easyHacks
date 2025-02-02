@@ -23,20 +23,20 @@ export default async function PollsPage() {
                     {/* Polls Box Header */}
                     <div className="flex items-end">
                         {/* Poll Icon */}
-                        <div className="border border-white p-3">
+                        <div className="border border-gray-400 p-3">
                             <div className="w-12 h-12 rounded-full border-2 border-[#FFB800] flex items-center justify-center">
                                 <span className="text-[#ffb700] text-2xl">📊</span>
                             </div>
                         </div>
 
                         {/* Title */}
-                        <div className="border border-white p-3 flex items-end">
+                        <div className="border border-gray-400 p-3 flex items-end">
                             <p className={`${pressStart2P.className} text-2xl font-bold text-[#FFB800]`}>— Polls —</p>
                         </div>
                     </div>
 
                     {/* Content */}
-                    <div className="border border-white p-6 bg-gradient-to-b from-gray-900 to-black">
+                    <div className="border border-gray-400 rounded-b p-6 bg-gradient-to-b from-gray-900 to-black shadow-[0_8px_16px_-2px_rgba(0,0,0,0.5)]">
                         <div className="space-y-4">
                             {user ? (
                                 <div className="mb-8">

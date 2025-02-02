@@ -38,7 +38,7 @@ export default async function Home() {
 
       {/* Hero Section */}
       <section className="relative h-screen flex items-center justify-center px-5">
-        <div className="border border-red-500">
+        <div className="">
           <Image
             src="/images/hero.jpeg"
             alt="Hero background"
@@ -49,9 +49,9 @@ export default async function Home() {
 
           {/* <div className="absolute inset-0 bg-black/50" /> */}
 
-          {/* Card is here  */}
+          {/* Card  */}
           <div className="relative z-10 text-center space-y-8 text-yellow-500 tracking-wide p-5 md:p-12 \
-           border-white border-4 rounded-xl bg-gradient-to-b from-gray-900/80 to-gray-900 max-w-4xl mx-auto">
+           border-gray-300 border-4 rounded-xl bg-gradient-to-b from-gray-900/80 to-gray-900 max-w-4xl mx-auto">
             <h1 className={`${pressStart2P.className} text-2xl sm:text-3xl md:text-4xl lg:text-5xl`}>
               EASYHACKS
               <br />
@@ -88,49 +88,16 @@ export default async function Home() {
         </div>
       </section>
 
-
-      {/* Sponsors Section */}
-      <section className="py-20">
-        <div className="container px-4 max-w-3xl mx-auto">
-          <h2 className={`${pressStart2P.className} text-2xl mb-8 text-center`}>- Sponsors -</h2>
-          <div className="grid grid-cols-2 gap-8 mb-12">
-            <Image
-              src="/images/perplexity.png"
-              alt="Perplexity AI"
-              width={200}
-              height={50}
-              className="mx-auto"
-            />
-            <Image
-              src="/images/apathy-is-boring.png"
-              alt="Apathy is Boring"
-              width={200}
-              height={50}
-              className="mx-auto"
-            />
-          </div>
-          <div className="text-center space-y-4">
-            <h3 className={`${pressStart2P.className} text-xl`}>- Become a sponsor -</h3>
-            <p className="text-gray-300">Want to make a difference?</p>
-            <Link
-              href="mailto:joineasyhacks@gmail.com"
-              className={`${pressStart2P.className} inline-block px-6 py-3 bg-white text-black hover:bg-gray-200 transition-colors`}
-            >
-              Contact Us
-            </Link>
-          </div>
-        </div>
-      </section>
-
       {/* FAQ Section */}
-      <section className="py-20">
+      <section className="py-10 px-4">
         <div className="container px-4 max-w-3xl mx-auto">
-          <h2 className={`${pressStart2P.className} text-2xl mb-8 text-center`}>- FAQ -</h2>
+          <h2 className={`${pressStart2P.className} text-2xl mb-8 text-center text-[#FFB800]`}>- FAQ -</h2>
           <Accordion type="single" collapsible className="space-y-4">
             <AccordionItem value="item-1" className="border-gray-800">
               <AccordionTrigger>How do I join?</AccordionTrigger>
               <AccordionContent>
-                Sign up using the button above and join our Discord community to get started!
+                The Sign Up button above will soon be implemented, until then, you can join our discord.
+                <a href="https://discord.com/invite/vcyEUgbs" target="_blank" rel="noopener noreferrer" className="text-[#FFB800] hover:text-[#FFB800]/80"> Discord</a>
               </AccordionContent>
             </AccordionItem>
             <AccordionItem value="item-2" className="border-gray-800">

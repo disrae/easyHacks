@@ -12,20 +12,20 @@ export default function SponsorsPage() {
                     {/* Sponsors Box Header */}
                     <div className="flex items-end">
                         {/* Star Icon */}
-                        <div className="border border-white p-3">
+                        <div className="border border-gray-400 p-3">
                             <div className="w-12 h-12 rounded-full border-2 border-[#FFB800] flex items-center justify-center">
                                 <span className="text-[#ffb700] text-3xl">★</span>
                             </div>
                         </div>
 
                         {/* Title */}
-                        <div className="border border-white p-3 flex items-end">
+                        <div className="border border-gray-400 p-3 flex items-end">
                             <p className={`${pressStart2P.className} text-2xl font-bold text-[#FFB800]`}>— Sponsors —</p>
                         </div>
                     </div>
 
                     {/* Content */}
-                    <div className="border border-white p-6 bg-gradient-to-b from-gray-900 to-black">
+                    <div className="border border-gray-400 p-6 bg-gradient-to-b from-gray-900 to-black">
                         <div className="text-center mb-8">
                             <h2 className="text-2xl font-bold mb-4 text-white">The developers of today</h2>
                             <h2 className="text-2xl font-bold mb-6 text-white">have big dreams of tomorrow</h2>
@@ -65,7 +65,7 @@ export default function SponsorsPage() {
                             </p>
                             <a
                                 href="mailto:joineasyhacks@gmail.com"
-                                className={`${pressStart2P.className} inline-block bg-transparent border-2 border-[#FFB800] text-white px-6 py-3 hover:bg-[#FFB800]/20 transition-colors`}
+                                className={`${pressStart2P.className} inline-block bg-transparent border-2 border-[#FFB800] text-white px-6 py-3 hover:bg-[#FFB800]/20 transition-colors rounded-lg`}
                             >
                                 Contact Us
                             </a>
