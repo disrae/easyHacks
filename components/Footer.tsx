@@ -4,7 +4,10 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 
-import { Discord, Github, Instagram, X } from '@/components/icons';
+import { Discord, Github, Instagram } from '@/components/icons';
+import { LinkedIn } from '@/components/icons/LinkedIn';
+
+
 
 export function Footer() {
     return (
@@ -27,7 +30,7 @@ export function Footer() {
                                 <Instagram className="w-6 h-6" />
                             </Link>
                             <Link href="/" className="text-gray-400 hover:text-white transition-colors" target="_blank" rel="noopener noreferrer">
-                                <X className="w-6 h-6" />
+                                <LinkedIn className="w-6 h-6" />
                             </Link>
                         </div>
                     </div>
@@ -57,4 +60,4 @@ export function Footer() {
             </div>
         </footer>
     );
-} 
+}
