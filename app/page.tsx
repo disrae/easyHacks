@@ -19,7 +19,7 @@ import { PageHeader } from "@/components/PageHeader";
 import { Countdown } from "@/components/Countdown";
 import { Button } from "@/components/ui/button";
 
-const pressStart2P = Press_Start_2P({
+export const pressStart2P = Press_Start_2P({
   subsets: ['latin'],
   weight: '400',
   display: 'swap',
@@ -88,7 +88,7 @@ export default async function Home() {
         </div>
       </section>
 
-      {/* About Section */}
+      About Section
       <section className="py-20">
         <div className="container px-4 max-w-3xl mx-auto">
           <h2 className={`${pressStart2P.className} text-2xl mb-8 text-center`}>- About -</h2>
@@ -103,7 +103,7 @@ export default async function Home() {
                 innovators from all backgrounds to create amazing projects and solve
                 real-world problems.
                 <br /><br />
-                Whether you're a seasoned developer or just starting out, there's a place
+                Whether you&apos;re a seasoned developer or just starting out, there&apos;s a place
                 for you at EasyHacks. Join our community and be part of something amazing.
               </p>
             </CardContent>
@@ -192,11 +192,11 @@ export default async function Home() {
             <AccordionItem value="item-2" className="border-gray-800">
               <AccordionTrigger>How big can my team be?</AccordionTrigger>
               <AccordionContent>
-                Teams can be between 1-4 people. Don't have a team? No worries! We'll help you find one.
+                Teams can be between 1-4 people. Don&apos;t have a team? No worries! We&apos;ll help you find one.
               </AccordionContent>
             </AccordionItem>
             <AccordionItem value="item-3" className="border-gray-800">
-              <AccordionTrigger>Can I use a project I've already started on?</AccordionTrigger>
+              <AccordionTrigger>Can I use a project I&apos;ve already started on?</AccordionTrigger>
               <AccordionContent>
                 All projects must be started during the hackathon to ensure fairness.
               </AccordionContent>
