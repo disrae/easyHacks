@@ -24,28 +24,28 @@ export function Navbar() {
                 {/* Desktop Navigation */}
                 <div className="hidden md:flex items-center space-x-8">
                     <Link
-                        href="/"
-                        className="text-gray-300 hover:text-white text-sm font-medium font-geist-sans"
-                    >
-                        Home
-                    </Link>
-                    <Link
-                        href="/polls"
-                        className="text-gray-300 hover:text-white text-sm font-medium font-geist-sans"
-                    >
-                        Polls
-                    </Link>
-                    <Link
                         href="/about"
                         className="text-gray-300 hover:text-white text-sm font-medium font-geist-sans"
                     >
                         About
                     </Link>
                     <Link
+                        href="/prizes"
+                        className="text-gray-300 hover:text-white text-sm font-medium font-geist-sans"
+                    >
+                        Prizes
+                    </Link>
+                    <Link
                         href="/sponsors"
                         className="text-gray-300 hover:text-white text-sm font-medium font-geist-sans"
                     >
                         Sponsors
+                    </Link>
+                    <Link
+                        href="/faq"
+                        className="text-gray-300 hover:text-white text-sm font-medium font-geist-sans"
+                    >
+                        FAQ
                     </Link>
                     {user?.isAdmin && (
                         <Link
@@ -90,20 +90,6 @@ export function Navbar() {
                     >
                         <div className="px-2 pt-2 pb-3 space-y-1 font-geist-sans">
                             <Link
-                                href="/"
-                                className="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800/50 rounded-md"
-                                onClick={() => setIsOpen(false)}
-                            >
-                                Home
-                            </Link>
-                            <Link
-                                href="/polls"
-                                className="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800/50 rounded-md"
-                                onClick={() => setIsOpen(false)}
-                            >
-                                Polls
-                            </Link>
-                            <Link
                                 href="/about"
                                 className="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800/50 rounded-md"
                                 onClick={() => setIsOpen(false)}
@@ -111,11 +97,25 @@ export function Navbar() {
                                 About
                             </Link>
                             <Link
+                                href="/prizes"
+                                className="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800/50 rounded-md"
+                                onClick={() => setIsOpen(false)}
+                            >
+                                Prizes
+                            </Link>
+                            <Link
                                 href="/sponsors"
                                 className="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800/50 rounded-md"
                                 onClick={() => setIsOpen(false)}
                             >
                                 Sponsors
+                            </Link>
+                            <Link
+                                href="/faq"
+                                className="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800/50 rounded-md"
+                                onClick={() => setIsOpen(false)}
+                            >
+                                FAQ
                             </Link>
                             {user?.isAdmin && (
                                 <Link
