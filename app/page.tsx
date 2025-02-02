@@ -63,14 +63,14 @@ export default async function Home() {
             <Countdown />
             <p className={`${pressStart2P.className} text-sm sm:text-base md:text-lg lg:text-xl text-white`}>Until your dreams come true</p>
             <div className={`${pressStart2P.className} flex justify-center flex-wrap gap-2`}>
-              <div className="inline-flex bg-[#FFB800E5] rounded-lg px-3 py-1">
-                <p className="text-sm font-medium text-white">March 1, 2025</p>
+              <div className="inline-flex bg-[#ffb700ab] rounded-lg tracking-wide px-3 py-1">
+                <p className="text-sm font-bold text-white">March 1, 2025</p>
               </div>
-              <div className="inline-flex bg-[#FFB800E5] rounded-lg px-3 py-1">
-                <p className="text-sm font-medium text-white">Virtual</p>
+              <div className="inline-flex bg-[#ffb700ab] rounded-lg tracking-wide px-3 py-1">
+                <p className="text-sm font-bold text-white">Virtual</p>
               </div>
-              <div className="inline-flex bg-[#FFB800E5] rounded-lg px-3 py-1">
-                <p className="text-sm font-medium text-white">Free</p>
+              <div className="inline-flex bg-[#ffb700ab] rounded-lg tracking-wide px-3 py-1">
+                <p className="text-sm font-bold text-white">Free</p>
               </div>
             </div>
 
@@ -88,62 +88,6 @@ export default async function Home() {
         </div>
       </section>
 
-      About Section
-      <section className="py-20">
-        <div className="container px-4 max-w-3xl mx-auto">
-          <h2 className={`${pressStart2P.className} text-2xl mb-8 text-center`}>- About -</h2>
-          <Card className="bg-black/50 border-gray-800">
-            <CardContent className="p-8">
-              <p className="text-gray-300 leading-relaxed">
-                EasyHacks is dedicated to making hackathons accessible to everyone. We
-                believe in fostering innovation, collaboration, and learning in a welcoming
-                environment.
-                <br /><br />
-                We organize hackathons that bring together developers, designers, and
-                innovators from all backgrounds to create amazing projects and solve
-                real-world problems.
-                <br /><br />
-                Whether you&apos;re a seasoned developer or just starting out, there&apos;s a place
-                for you at EasyHacks. Join our community and be part of something amazing.
-              </p>
-            </CardContent>
-          </Card>
-        </div>
-      </section>
-
-      {/* Prizes Section */}
-      <section className="py-20">
-        <div className="container px-4 max-w-3xl mx-auto">
-          <h2 className={`${pressStart2P.className} text-2xl mb-8 text-center`}>- Prizes -</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Prize images will go here - using placeholders for now */}
-            <div className="aspect-square relative">
-              <Image
-                src="/placeholder-prize.png"
-                alt="Prize chest"
-                fill
-                className="object-contain"
-              />
-            </div>
-            <div className="aspect-square relative">
-              <Image
-                src="/placeholder-1337.png"
-                alt="$1337 Prize"
-                fill
-                className="object-contain"
-              />
-            </div>
-            <div className="aspect-square relative">
-              <Image
-                src="/placeholder-food.png"
-                alt="Free Food"
-                fill
-                className="object-contain"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* Sponsors Section */}
       <section className="py-20">
