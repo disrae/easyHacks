@@ -4,7 +4,7 @@ import React from 'react';
 
 export function SponsorsSection({ className = '' }) {
     return (
-        <div className={className}>
+        <div id="sponsors" className={className}>
 
             {/* Sponsors Card */}
             <div className="flex items-end">

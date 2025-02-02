@@ -4,7 +4,7 @@ import React from 'react';
 
 export function FAQSection({ className = '' }) {
     return (
-        <section className={className}>
+        <section id="faq" className={className}>
             <h2 className={`${pressStart2P.className} text-[#FFB800] text-2xl md:text-3xl lg:text-4xl mb-8 text-center`}>- FAQ -</h2>
 
             <Accordion type="single" collapsible className="space-y-4">
