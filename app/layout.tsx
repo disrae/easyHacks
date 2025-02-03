@@ -26,10 +26,10 @@ const pixelFont = Press_Start_2P({
 });
 
 export const metadata: Metadata = {
-  title: "EasyHacks 🔥",
+  title: "EasyHacks",
   description: "The open hackathon",
   icons: {
-    icon: "/convex.svg",
+    icon: "/favicon.png",
   },
 };
 
