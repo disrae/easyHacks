@@ -55,11 +55,11 @@ export async function HeroSection() {
 
                 {/* This is going to require logic to check if they already signed up */}
                 {user === null && (
-                    <Button
-                        className={`${pressStart2P.className} px-8 py-4 bg-transparent border-[#FFB800E5] border-2 text-white hover:bg-gray-200 transition-colors`}
+                    <div
+                        className={`inline-flex justify-center items-center ${pressStart2P.className} px-8 py-4 rounded-lg bg-transparent border-[#FFB800E5] border-2 text-white`}
                     >
-                        Sign up
-                    </Button>
+                        Sign up coming soon...
+                    </div>
                 )}
                 {/* This will require backend function to return signed up users */}
                 {/* <p className="text-sm opacity-75">1337 dreamers and counting...</p> */}
