@@ -1,6 +1,16 @@
-import { pressStart2P } from '@/app/page';
-import Image from 'next/image';
 import React from 'react';
+import Image from 'next/image';
+import { ApathyIsBoring, Incogni, NordPassHorizontal, NordVpnHorizontal, Perplexity, Saily } from '@/public/images/sponsors';
+import { pressStart2P } from '@/app/page';
+
+const sponsors = [
+    { src: ApathyIsBoring, alt: 'Apathy is Boring', width: 200, height: 180, className: "" },
+    { src: Incogni, alt: 'Incogni', width: 110, height: 105, className: "" },
+    { src: NordPassHorizontal, alt: 'NordPass Horizontal', width: 140, height: 90, className: "" },
+    { src: NordVpnHorizontal, alt: 'NordVPN Horizontal', width: 210, height: 0, className: "" },
+    { src: Perplexity, alt: 'Perplexity AI', width: 140, height: 10, className: "" },
+    { src: Saily, alt: 'Saily', width: 90, height: 105, className: "" },
+];
 
 export function SponsorsSection({ className = '' }) {
     return (
@@ -29,21 +39,18 @@ export function SponsorsSection({ className = '' }) {
                 </div>
 
                 {/* Sponsor logos grid */}
-                <div className="flex flex-col md:flex-row justify-around items-center mb-12 space-y-8 md:space-y-0">
-                    <Image
-                        src="/images/perplexity.png"
-                        alt="Perplexity AI"
-                        width={200}
-                        height={50}
-                        className="max-h-50"
-                    />
-                    <Image
-                        src="/images/apathy-is-boring.png"
-                        alt="Apati"
-                        width={200}
-                        height={50}
-                        className="max-h-50"
-                    />
+                <div className="grid grid-cols-2 md:grid-cols-3 gap-10 mb-12 justify-items-center items-center max-w-full">
+                    {sponsors.map((sponsor, index) => (
+                        <Image
+                            key={index}
+                            src={sponsor.src}
+                            alt={sponsor.alt}
+                            width={sponsor.width || 200}
+                            height={sponsor.height || 50}
+                            // Removed the "max-h-[500px]" class to let the images scale larger.
+                            className={`${sponsor.className} `}
+                        />
+                    ))}
                 </div>
 
                 {/* Become a sponsor section */}
@@ -66,4 +73,4 @@ export function SponsorsSection({ className = '' }) {
             </div>
         </div>
     );
-} 
+}
