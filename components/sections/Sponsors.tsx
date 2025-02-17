@@ -40,17 +40,17 @@ export function SponsorsSection({ className = '' }) {
                 </div>
 
                 {/* Sponsor logos grid */}
-                <div className="grid grid-cols-2 md:grid-cols-3 gap-10 mb-12 justify-items-center items-center max-w-full">
+                <div className="flex flex-wrap justify-center items-center gap-10 mb-12">
                     {sponsors.map((sponsor, index) => (
-                        <Image
-                            key={index}
-                            src={sponsor.src}
-                            alt={sponsor.alt}
-                            width={sponsor.width || 200}
-                            height={sponsor.height || 50}
-                            // Removed the "max-h-[500px]" class to let the images scale larger.
-                            className={`${sponsor.className} `}
-                        />
+                        <div key={index} className="flex justify-center lg:w-[calc(33%-2.5rem)]">
+                            <Image
+                                src={sponsor.src}
+                                alt={sponsor.alt}
+                                width={sponsor.width || 200}
+                                height={sponsor.height || 50}
+                                className={`${sponsor.className}`}
+                            />
+                        </div>
                     ))}
                 </div>
 
