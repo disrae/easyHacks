@@ -10,7 +10,7 @@ const sponsors = [
     { src: NordVpnHorizontal, alt: 'NordVPN Horizontal', width: 210, height: 0, className: "" },
     { src: Perplexity, alt: 'Perplexity AI', width: 140, height: 10, className: "" },
     { src: Saily, alt: 'Saily', width: 90, height: 105, className: "" },
-    { src: Hive, alt: 'Hive', width: 90, height: 105, className: "" },
+    { src: Hive, alt: 'Hive', width: 85, height: 50, className: "" },
 ];
 
 export function SponsorsSection({ className = '' }) {
