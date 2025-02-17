@@ -1,3 +1,4 @@
+import { SectionHeading } from "@/components/ui/section-heading";
 import React from 'react';
 import Image from 'next/image';
 import { ApathyIsBoring, Hive, Incogni, NordPassHorizontal, NordVpnHorizontal, Perplexity, Saily } from '@/public/images/sponsors';
@@ -21,18 +22,17 @@ export function SponsorsSection({ className = '' }) {
             <div className="flex items-end">
                 <div className="border border-gray-400 p-3 bg-black/90">
                     <div className="w-12 h-12 rounded-full border-2 border-[#FFB800] flex items-center justify-center">
-                        <span className="text-[#ffb700] text-3xl">★</span>
+                        <span className="text-[#FFB800] text-3xl">★</span>
                     </div>
                 </div>
                 <div className="border border-gray-400 p-3 flex items-end bg-black/90">
-                    <p className={`${pressStart2P.className} text-2xl font-bold text-[#FFB800]`}>— Sponsors —</p>
+                    <h2><SectionHeading>Sponsors</SectionHeading></h2>
                 </div>
             </div>
 
             <div className="border border-gray-400 p-6 bg-gradient-to-b from-gray-900 to-black">
                 <div className="text-center mb-8">
-                    <h2 className="text-2xl font-bold mb-4 text-white">The developers of today</h2>
-                    <h2 className="text-2xl font-bold mb-6 text-white">have big dreams of tomorrow</h2>
+                    <h2 className="text-2xl font-bold mb-4 text-white">The developers of today<br />have big dreams of tomorrow</h2>
                     <p className="text-gray-300 font-semibold tracking-wide leading-relaxed">
                         We&apos;re grateful for all our generous sponsors for fueling innovation and growing local talent by
                         making EasyHacks 2025 possible!
@@ -42,7 +42,7 @@ export function SponsorsSection({ className = '' }) {
                 {/* Sponsor logos grid */}
                 <div className="flex flex-wrap justify-center items-center gap-10 mb-12">
                     {sponsors.map((sponsor, index) => (
-                        <div key={index} className="flex justify-center lg:w-[calc(33%-2.5rem)]">
+                        <div key={index} className="flex justify-center w-[calc(50%-2.5rem)] lg:w-[calc(33%-2.5rem)]">
                             <Image
                                 src={sponsor.src}
                                 alt={sponsor.alt}
@@ -56,7 +56,9 @@ export function SponsorsSection({ className = '' }) {
 
                 {/* Become a sponsor section */}
                 <div className="text-center border-t border-gray-800 pt-8">
-                    <h2 className={`${pressStart2P.className} text-xl text-[#FFB800] mb-4`}>- Become a sponsor -</h2>
+                    <h3>
+                        <SectionHeading fontSizeClass="text-xl">Become a Sponsor</SectionHeading>
+                    </h3>
                     <p className="text-gray-300 font-semibold mb-4">Want to make a difference?</p>
                     <p className="text-gray-300 font-semibold mb-8">
                         If you&apos;re interested in becoming a sponsor, please reach out to us at{' '}

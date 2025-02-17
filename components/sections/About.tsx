@@ -1,4 +1,5 @@
 import { pressStart2P } from '@/app/page';
+import { SectionHeading } from "@/components/ui/section-heading";
 import React from 'react';
 
 export function AboutSection({ className = '' }) {
@@ -15,7 +16,9 @@ export function AboutSection({ className = '' }) {
 
                 {/* Title */}
                 <div className="border border-gray-400 p-3 flex items-end bg-black/90">
-                    <p className={`${pressStart2P.className} text-2xl font-bold text-[#FFB800]`}>— About —</p>
+                    <h2>
+                        <SectionHeading>About</SectionHeading>
+                    </h2>
                 </div>
             </div>
             {/* Content */}

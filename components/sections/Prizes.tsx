@@ -1,10 +1,13 @@
 import { pressStart2P } from '@/app/page';
+import { SectionHeading } from "@/components/ui/section-heading";
 import Image from 'next/image';
 import React from 'react';
 
 export function PrizesSection({ className = '' }) {
     return <div id="prizes" className={className}>
-        <h2 className={`${pressStart2P.className} text-[#FFB800] text-2xl mb-4 text-center`}>- Prizes -</h2>
+        <h2>
+            <SectionHeading>Prizes</SectionHeading>
+        </h2>
         <div className="flex space-x-4 md:space-x-8 lg:space-x-16 justify-center items-center max-w-full">
             <div className="max-w-[400px]">
                 <Image

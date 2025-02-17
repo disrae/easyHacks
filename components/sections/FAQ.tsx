@@ -1,11 +1,14 @@
 import { pressStart2P } from '@/app/page';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
+import { SectionHeading } from "@/components/ui/section-heading";
 import React from 'react';
 
 export function FAQSection({ className = '' }) {
     return (
         <section id="faq" className={className}>
-            <h2 className={`${pressStart2P.className} text-[#FFB800] text-2xl md:text-3xl lg:text-4xl mb-8 text-center`}>- FAQ -</h2>
+            <h2>
+                <SectionHeading>FAQ</SectionHeading>
+            </h2>
 
             <Accordion type="single" collapsible className="space-y-4">
                 <AccordionItem value="item-1" className="border-gray-800">
