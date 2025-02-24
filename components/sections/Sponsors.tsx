@@ -1,7 +1,7 @@
 import { SectionHeading } from "@/components/ui/section-heading";
 import React from 'react';
 import Image from 'next/image';
-import { ApathyIsBoring, Hive, Incogni, NordPassHorizontal, NordVpnHorizontal, Perplexity, Saily } from '@/public/images/sponsors';
+import { ApathyIsBoring, Hive, Incogni, NordPassHorizontal, NordVpnHorizontal, Perplexity, Saily, XYZ } from '@/public/images/sponsors';
 import { pressStart2P } from '@/app/page';
 
 const sponsors = [
@@ -11,7 +11,8 @@ const sponsors = [
     { src: NordVpnHorizontal, alt: 'NordVPN Horizontal', width: 210, height: 0, className: "" },
     { src: Perplexity, alt: 'Perplexity AI', width: 140, height: 10, className: "" },
     { src: Saily, alt: 'Saily', width: 90, height: 105, className: "" },
-    { src: Hive, alt: 'Hive', width: 85, height: 50, className: "" },
+    { src: Hive, alt: 'Hive', width: 70, height: 50, className: "" },
+    { src: XYZ, alt: 'XYZ', width: 75, height: 90, className: "" },
 ];
 
 export function SponsorsSection({ className = '' }) {

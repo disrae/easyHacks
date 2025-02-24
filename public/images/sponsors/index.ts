@@ -6,6 +6,7 @@ import NordPassVertical from './NordPass-vertical.png';
 import NordVpnHorizontal from './NordVpn-horizontal.png';
 import Perplexity from './perplexity.png';
 import Saily from './saily.png';
+import XYZ from './xyz.png';
 
 export {
     ApathyIsBoring,
@@ -16,4 +17,5 @@ export {
     NordVpnHorizontal,
     Perplexity,
     Saily,
+    XYZ,
 }; 
