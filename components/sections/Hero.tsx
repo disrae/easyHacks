@@ -55,11 +55,14 @@ export async function HeroSection() {
 
                 {/* This is going to require logic to check if they already signed up */}
                 {user === null && (
-                    <div
-                        className={`inline-flex justify-center items-center ${pressStart2P.className} px-8 py-4 rounded-lg bg-transparent border-[#FFB800E5] border-2 text-white`}
+                    <a
+                        href="https://docs.google.com/forms/d/e/1FAIpQLSeYHFRfIqhmzomlJS71-FPHWx4pMnPuamd6KOs2ImP_ES0V1w/viewform"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={`inline-flex justify-center items-center ${pressStart2P.className} px-8 py-4 rounded-lg bg-transparent border-[#FFB800E5] border-2 text-white hover:bg-[#FFB800] hover:text-black transition-colors cursor-pointer`}
                     >
-                        Sign up coming soon...
-                    </div>
+                        Sign up now
+                    </a>
                 )}
                 {/* This will require backend function to return signed up users */}
                 {/* <p className="text-sm opacity-75">1337 dreamers and counting...</p> */}
