@@ -5,14 +5,14 @@ import { ApathyIsBoring, Hive, Incogni, NordPassHorizontal, NordVpnHorizontal, P
 import { pressStart2P } from '@/app/page';
 
 const sponsors = [
-    { src: ApathyIsBoring, alt: 'Apathy is Boring', width: 200, height: 180, className: "", url: 'https://www.apathyisboring.com' },
-    { src: Incogni, alt: 'Incogni', width: 110, height: 105, className: "", url: 'https://incogni.com' },
-    { src: NordPassHorizontal, alt: 'NordPass Horizontal', width: 140, height: 90, className: "", url: 'https://nordpass.com' },
-    { src: NordVpnHorizontal, alt: 'NordVPN Horizontal', width: 210, height: 0, className: "", url: 'https://nordvpn.com' },
-    { src: Perplexity, alt: 'Perplexity AI', width: 140, height: 10, className: "", url: 'https://www.perplexity.ai' },
-    { src: Saily, alt: 'Saily', width: 90, height: 105, className: "", url: 'https://saily.com' },
-    { src: Hive, alt: 'Hive', width: 70, height: 50, className: "", url: 'https://hiveclimbing.com/vancouver/' },
-    { src: XYZ, alt: 'XYZ', width: 75, height: 90, className: "", url: 'https://gen.xyz' },
+    { src: ApathyIsBoring, alt: 'Apathy is Boring', width: 500, height: 450, className: "", url: 'https://www.apathyisboring.com' },
+    { src: Incogni, alt: 'Incogni', width: 275, height: 263, className: "", url: 'https://incogni.com' },
+    { src: NordPassHorizontal, alt: 'NordPass Horizontal', width: 450, height: 225, className: "", url: 'https://nordpass.com' },
+    { src: NordVpnHorizontal, alt: 'NordVPN Horizontal', width: 700, height: 0, className: "", url: 'https://nordvpn.com' },
+    { src: Perplexity, alt: 'Perplexity AI', width: 350, height: 25, className: "", url: 'https://www.perplexity.ai' },
+    { src: Saily, alt: 'Saily', width: 225, height: 263, className: "", url: 'https://saily.com' },
+    { src: Hive, alt: 'Hive', width: 175, height: 125, className: "", url: 'https://hiveclimbing.com/vancouver/' },
+    { src: XYZ, alt: 'XYZ', width: 188, height: 225, className: "", url: 'https://gen.xyz' },
 ];
 
 export function SponsorsSection({ className = '' }) {
@@ -43,7 +43,7 @@ export function SponsorsSection({ className = '' }) {
                 {/* Sponsor logos grid */}
                 <div className="flex flex-wrap justify-center items-center gap-10 mb-12">
                     {sponsors.map((sponsor, index) => (
-                        <div key={index} className="flex justify-center w-[calc(50%-2.5rem)] lg:w-[calc(33%-2.5rem)]">
+                        <div key={index} className="flex justify-center w-[calc(50%-2.5rem)]">
                             <a
                                 href={sponsor.url}
                                 target="_blank"
@@ -54,8 +54,8 @@ export function SponsorsSection({ className = '' }) {
                                 <Image
                                     src={sponsor.src}
                                     alt={sponsor.alt}
-                                    width={sponsor.width || 200}
-                                    height={sponsor.height || 50}
+                                    width={sponsor.width || 500}
+                                    height={sponsor.height || 125}
                                     className={`${sponsor.className}`}
                                 />
                             </a>
