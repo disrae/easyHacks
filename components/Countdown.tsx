@@ -17,8 +17,8 @@ export function Countdown() {
     });
 
     useEffect(() => {
-        // March 15, 2025 at 10:00 AM PST
-        const targetDate = new Date('2025-03-15T10:00:00-08:00');
+        // March 14, 2025 at 13:30 PM PST
+        const targetDate = new Date('2025-03-14T13:30:00-08:00');
 
         const calculateTimeLeft = () => {
             const now = new Date();

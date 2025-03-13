@@ -8,7 +8,7 @@ const sponsors = [
     { src: ApathyIsBoring, alt: 'Apathy is Boring', width: 500, height: 450, className: "", url: 'https://www.apathyisboring.com' },
     { src: Incogni, alt: 'Incogni', width: 275, height: 263, className: "", url: 'https://incogni.com' },
     { src: NordPassHorizontal, alt: 'NordPass Horizontal', width: 450, height: 225, className: "", url: 'https://nordpass.com' },
-    { src: NordVpnHorizontal, alt: 'NordVPN Horizontal', width: 700, height: 0, className: "", url: 'https://nordvpn.com' },
+    { src: NordVpnHorizontal, alt: 'NordVPN Horizontal', width: 700, height: 0, className: "", url: 'https://nordvpn.com/hackathons' },
     { src: Perplexity, alt: 'Perplexity AI', width: 350, height: 25, className: "", url: 'https://www.perplexity.ai' },
     { src: Saily, alt: 'Saily', width: 225, height: 263, className: "", url: 'https://saily.com' },
     { src: Hive, alt: 'Hive', width: 175, height: 125, className: "", url: 'https://hiveclimbing.com/vancouver/' },

@@ -43,7 +43,7 @@ export async function HeroSection() {
                 <p className={`${pressStart2P.className} text-sm sm:text-base md:text-lg lg:text-xl text-white`}>Until your dreams come true</p>
                 <div className={`${pressStart2P.className} flex justify-center flex-wrap gap-2`}>
                     <div className="inline-flex bg-[#ffb700ab] rounded-lg tracking-wide px-3 py-1">
-                        <p className="text-sm font-bold text-white">March 15-16, 2025</p>
+                        <p className="text-sm font-bold text-white">March 14-15, 2025</p>
                     </div>
                     <div className="inline-flex bg-[#ffb700ab] rounded-lg tracking-wide px-3 py-1">
                         <p className="text-sm font-bold text-white">Virtual</p>
