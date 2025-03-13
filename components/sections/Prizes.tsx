@@ -19,20 +19,30 @@ export function PrizesSection({ className = '' }) {
                 />
             </div>
             <div className="flex-col space-y-4 md:space-y-8 lg:space-y-16">
-                <Image
-                    src="/images/prize-money.png"
-                    alt="Prize Money"
-                    className="object-cover"
-                    width={150}
-                    height={150}
-                />
-                <Image
-                    src="/images/prize-food.png"
-                    alt="Prize Food"
-                    width={150}
-                    height={150}
-                    className="w-full h-auto"
-                />
+                <div className="flex flex-col items-center">
+                    <Image
+                        src="/images/prize-cash.png"
+                        alt="Prize Money"
+                        className="object-cover"
+                        width={200}
+                        height={150}
+                    />
+                    <div className="flex flex-shrink -mt-10 bg-black/80 px-2 py-1.5 ">
+                        <p className={`${pressStart2P.className} text-[#FFB800]  text-opacity-100 font-bold text-center`}>$6k in prizes</p>
+                    </div>
+                </div>
+                <div className="flex flex-col items-center">
+                    <Image
+                        src="/images/prize-food-2.png"
+                        alt="Prize Food"
+                        width={200}
+                        height={150}
+                        className="object-cover"
+                    />
+                    <div className="-mt-8 bg-black/80 px-2 py-1.5 ">
+                        <p className={`${pressStart2P.className} text-[#FFB800] text- text-opacity-100 font-bold text-center`}>Food Vouchers</p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>;
